@@ -2,9 +2,29 @@
 <html>
 <head>
     <title>页面跳转</title>
-    <meta http-equiv="refresh" content="0;URL='http://sky.aut520.love'" />
 </head>
 <body>
     <h1>正在跳转页面，请稍候...</h1>
+
+    <script>
+        var countdown = 5;  // 倒计时时间（秒）
+        
+        function startCountdown() {
+            var countdownElement = document.querySelector('h1');
+            
+            var countdownInterval = setInterval(function() {
+                countdown--;
+                
+                countdownElement.innerHTML = '正在跳转页面，请稍候... 剩余 ' + countdown + ' 秒';
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = 'http://sky.aut520.love';  // 跳转到指定的URL
+                }
+            }, 1000); 
+        }
+        
+        window.onload = startCountdown;
+    </script>
 </body>
 </html>
